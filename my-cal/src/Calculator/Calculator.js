@@ -35,7 +35,7 @@ const Calculator = () => {
       setCalculate(resultOutput);
     }
   };
-  const calculateSum = (e) => {
+  const calculateSum = () => {
     setResult(calculate);
   };
   return (

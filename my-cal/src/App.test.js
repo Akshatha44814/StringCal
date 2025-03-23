@@ -1,10 +1,15 @@
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import App from "./App";
 import Calculator from "./Calculator/Calculator";
 import "./index.css";
 import "./Calculator/Calculator.css";
-
 afterEach(cleanup);
 
 test("renders Main App Component", () => {
@@ -32,6 +37,8 @@ describe("renders Calculate Component", () => {
   });
 
   it("Input string Onclick calculate show output", () => {
+    const calculateSum = jest.fn();
+
     render(<Calculator />);
     const inputStringField = screen.getByPlaceholderText(
       "E.G.,//;\\n1;2;3 or 1,2,3"
@@ -45,9 +52,11 @@ describe("renders Calculate Component", () => {
     });
     expect(inputStringField).toHaveValue("1,2,3");
 
-    const buttonEl = screen.getByText("Calculate");
-    userEvent.click(buttonEl);
+    const { getByText } = render(<button onClick={() => calculateSum()} />);
+    const buttonEl = getByText("Calculate");
+    act(() => fireEvent.click(buttonEl));
     expect(buttonEl).toHaveTextContent("Calculate");
+    expect(buttonEl).toBeTruthy();
 
     const outputStringField = screen.getByPlaceholderText("Result Output");
     expect(outputStringField).toBeInTheDocument();
