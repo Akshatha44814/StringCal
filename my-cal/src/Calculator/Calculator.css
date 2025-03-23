@@ -1,30 +1,38 @@
 .conatiner {
-    background-color: white;
-    padding: 2%;
-    margin: 2%;
-    width: 500px;
-    border-radius: 2%;
-    box-shadow: 2px 2px 5px lightgray;
+  background-color: white;
+  padding: 2%;
+  margin: 2%;
+  width: 500px;
+  border-radius: 2%;
+  box-shadow: 2px 2px 5px lightgray;
 }
 .input {
-    padding: 10px;
-    width: 360px;
-    border: 1px solid #ececec;
-    border-radius: 2px;
+  padding: 10px;
+  width: 360px;
+  border: 1px solid #ececec;
+  border-radius: 2px;
 }
-.calculate{
-    background: blue;
-    color: white;
-    padding: 10px;
-    width: 385px;
-    border: 1px solid #ececec;
-    border-radius: 4px;
-    margin: 10px;
+.calculate {
+  background: blue;
+  color: white;
+  padding: 10px;
+  width: 385px;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+  margin: 10px;
 }
 .colorContent {
-    color: red;
+  color: red;
 }
-.content{
-    display: flex;
-    margin: 2% 10% 2% 12%;
+.content {
+  display: flex;
+  margin: 2% 10% 2% 12%;
+}
+.resultInput{
+    margin-bottom: 5%;
+}
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
 }
