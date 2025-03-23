@@ -11,13 +11,28 @@ test("renders Main App Component", () => {
   render(<App />);
 });
 describe("renders Calculate Component", () => {
-  it("elements of the page", () => {
+  it("render Calculate component", () => {
+    render(<Calculator />);
+  });
+
+  it("render String Calculator header", () => {
     render(<Calculator />);
     const linkHeader = screen.getByText("String Calculator");
     expect(linkHeader).toBeInTheDocument();
+  });
 
+  it("render Enter numbers label", () => {
+    render(<Calculator />);
     const linkLabel = screen.getByText("Enter numbers");
     expect(linkLabel).toBeInTheDocument();
+  });
+
+  it("render Calculate component", () => {
+    render(<Calculator />);
+  });
+
+  it("Input string Onclick calculate show output", () => {
+    render(<Calculator />);
     const inputStringField = screen.getByPlaceholderText(
       "E.G.,//;\\n1;2;3 or 1,2,3"
     );
@@ -53,17 +68,24 @@ describe("renders Calculate Component", () => {
     expect(asFragment()).toMatchSnapshot();
   });
   it("should render the value of negative number and error message", () => {
-    render(<Calculator negativeNumbers="-1,-2" error={true} />);
-    const inputStringField = screen.getByPlaceholderText(
-      "E.G.,//;\\n1;2;3 or 1,2,3"
-    );
-    expect(inputStringField).toBeInTheDocument();
+    const negativeString = "-1,-2";
+    render(<Calculator negativeNumbers={negativeString} error={true} />);
+
     const NegativeError = () => (
       <span className="content colorContent">
-        {"Negative numbers not allowed :-1,-2"}
+        {`Negative numbers not allowed :${negativeString}`}
       </span>
     );
     const { asFragment } = render(<NegativeError />);
+    const inputStringField2 = screen.getByPlaceholderText(
+      "E.G.,//;\\n1;2;3 or 1,2,3"
+    );
+    fireEvent.change(inputStringField2, {
+      target: {
+        negativeString,
+      },
+    });
+    expect(inputStringField2).toBeInTheDocument();
 
     expect(asFragment()).toHaveTextContent(
       "Negative numbers not allowed :-1,-2"
