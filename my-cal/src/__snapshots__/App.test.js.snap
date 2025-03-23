@@ -1,0 +1,177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`String calculator  matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="conatiner"
+  >
+    <h1>
+      String Calculator
+    </h1>
+    <p
+      class="content"
+    >
+      Enter numbers
+    </p>
+    <p
+      class="content"
+    >
+      (Format:
+      <em
+        class="colorContent"
+      >
+        //[delimiter]\\n[numbers]
+      </em>
+      )
+    </p>
+    <div>
+      <input
+        class="input"
+        placeholder="E.G.,//;\\\\n1;2;3 or 1,2,3"
+        type="text"
+      />
+    </div>
+    <button
+      class="calculate"
+    >
+      Calculate
+    </button>
+    <div
+      class="resultInput"
+    >
+      <input
+        class="input"
+        disabled=""
+        placeholder=""
+        type="text"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`String calculator matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="conatiner"
+  >
+    <h1>
+      String Calculator
+    </h1>
+    <p
+      class="content"
+    >
+      Enter numbers
+    </p>
+    <p
+      class="content"
+    >
+      (Format:
+      <em
+        class="colorContent"
+      >
+        //[delimiter]\\n[numbers]
+      </em>
+      )
+    </p>
+    <div>
+      <input
+        class="input"
+        placeholder="E.G.,//;\\\\n1;2;3 or 1,2,3"
+        type="text"
+      />
+    </div>
+    <button
+      class="calculate"
+    >
+      Calculate
+    </button>
+    <div
+      class="resultInput"
+    >
+      <input
+        class="input"
+        disabled=""
+        placeholder=""
+        type="text"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`renders Calculate Component 1`] = `
+<DocumentFragment>
+  <div
+    class="conatiner"
+  >
+    <h1>
+      String Calculator
+    </h1>
+    <p
+      class="content"
+    >
+      Enter numbers
+    </p>
+    <p
+      class="content"
+      data-testid="format"
+    >
+      (Format:
+      <em
+        class="colorContent"
+      >
+        //[delimiter]\\n[numbers]
+      </em>
+      )
+    </p>
+    <div>
+      <input
+        class="input"
+        placeholder="E.G.,//;\\\\n1;2;3 or 1,2,3"
+        type="text"
+      />
+    </div>
+    <button
+      class="calculate"
+    >
+      Calculate
+    </button>
+    <div
+      class="resultInput"
+    >
+      <input
+        class="input"
+        disabled=""
+        placeholder=""
+        type="text"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`renders Calculate Component display the format label 1`] = `
+<DocumentFragment>
+  <p>
+    (Format:
+    <span>
+      //[delimiter]
+[numbers]
+    </span>
+    )
+  </p>
+</DocumentFragment>
+`;
+
+exports[`renders Calculate Component elements of the page 1`] = `null`;
+
+exports[`renders Calculate Component should render the value of negative number and error message 1`] = `
+<DocumentFragment>
+  <span
+    class="content colorContent"
+  >
+    Negative numbers not allowed :-1,-2
+  </span>
+</DocumentFragment>
+`;
