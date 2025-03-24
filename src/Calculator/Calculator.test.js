@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
 import CalculatorPage from "../CalculatorPage/CalculatorPage";
 
 afterEach(cleanup);
@@ -19,5 +19,13 @@ describe("renders Calculate Component", () => {
       },
     });
     expect(inputStringField).toHaveValue("1,2,3");
+
+    const calculateSum = jest.fn();
+    const { getByText } = render(<button onClick={() => calculateSum()} />);
+    const buttonEl = getByText("Calculate");
+    act(() => fireEvent.click(buttonEl));
+    expect(buttonEl).toHaveTextContent("Calculate");
+    expect(buttonEl).toBeTruthy();
+    expect(buttonEl).toBeInTheDocument();
   });
 });
