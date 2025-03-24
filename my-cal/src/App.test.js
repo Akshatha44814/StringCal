@@ -23,6 +23,7 @@ describe("renders Calculate Component", () => {
     expect(linkHeader).toBeInTheDocument();
     expect(asFragment()).toHaveTextContent("String Calculator");
     expect(asFragment()).toMatchSnapshot();
+    expect(asFragment()).toBeTruthy();
   });
 
   it("render Enter numbers label", () => {
@@ -31,6 +32,7 @@ describe("renders Calculate Component", () => {
     expect(linkLabel).toBeInTheDocument();
     expect(asFragment()).toHaveTextContent("Enter numbers");
     expect(asFragment()).toMatchSnapshot();
+    expect(asFragment()).toBeTruthy();
   });
 
   it("display the format label", () => {
@@ -44,5 +46,7 @@ describe("renders Calculate Component", () => {
     const { asFragment } = render(<Format />);
     expect(asFragment()).toHaveTextContent("(Format://[delimiter] [numbers])");
     expect(asFragment()).toMatchSnapshot();
+    expect(asFragment()).toBeTruthy();
+    
   });
 });

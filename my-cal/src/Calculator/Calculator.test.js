@@ -35,6 +35,7 @@ describe("renders Calculate Component", () => {
     expect(outputStringField).toBeInTheDocument();
     expect(outputStringField).toBeDisabled();
     expect(outputStringField).toHaveValue("6");
+    expect(outputStringField).toBeTruthy();
   });
 
   it("should render the value of negative number and error message", () => {
@@ -60,6 +61,7 @@ describe("renders Calculate Component", () => {
     expect(asFragment()).toHaveTextContent(
       "Negative numbers not allowed :-1,-2"
     );
+    expect(asFragment()).toBeTruthy();
     expect(asFragment()).toMatchSnapshot();
   });
 });
