@@ -24,3 +24,9 @@ button[disabled] {
   padding: 10px;
   width: 95%;
 }
+
+@media (max-width: 900px) {
+  .calculate {
+    width: 100%;
+  }
+}
