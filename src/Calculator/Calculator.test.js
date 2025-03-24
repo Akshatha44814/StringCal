@@ -33,6 +33,7 @@ describe("renders Calculate Component", () => {
     expect(buttonEl).toHaveTextContent("Calculate");
     expect(buttonEl).toBeTruthy();
     expect(buttonEl).toBeInTheDocument();
+    expect(buttonEl).not.toBeDisabled();
 
     const outputStringField = screen.getByPlaceholderText("Result Output");
     expect(outputStringField).toBeInTheDocument();
@@ -42,7 +43,8 @@ describe("renders Calculate Component", () => {
   });
   it("should render the value of negative number and error message", () => {
     const negativeString = "-1,-2";
-    render(<CalculatorPage negativeNumbers={negativeString} error={true} />);
+    const error = true;
+    render(<CalculatorPage negativeNumbers={negativeString} error={error} />);
 
     const NegativeError = () => (
       <span className="content colorContent">
@@ -65,5 +67,16 @@ describe("renders Calculate Component", () => {
     );
     expect(asFragment()).toBeTruthy();
     expect(asFragment()).toMatchSnapshot();
+  });
+  it("Negative value should disable the calculate button", () => {
+    const { getByText, asFragment } = render(
+      <button className="calculate" disabled={true}>
+        Calculate
+      </button>
+    );
+    expect(asFragment()).toHaveTextContent("Calculate");
+    expect(asFragment()).toMatchSnapshot();
+    expect(asFragment()).toBeTruthy();
+    expect(getByText("Calculate")).toBeDisabled();
   });
 });
