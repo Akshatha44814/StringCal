@@ -47,6 +47,5 @@ describe("renders Calculate Component", () => {
     expect(asFragment()).toHaveTextContent("(Format://[delimiter] [numbers])");
     expect(asFragment()).toMatchSnapshot();
     expect(asFragment()).toBeTruthy();
-    
   });
 });
