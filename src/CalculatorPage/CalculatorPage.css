@@ -27,6 +27,6 @@ button[disabled] {
 
 @media (max-width: 900px) {
   .calculate {
-    width: 100%;
+    width: 95%;
   }
 }
