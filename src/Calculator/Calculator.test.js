@@ -40,4 +40,30 @@ describe("renders Calculate Component", () => {
     expect(outputStringField).toHaveValue("6");
     expect(outputStringField).toBeTruthy();
   });
+  it("should render the value of negative number and error message", () => {
+    const negativeString = "-1,-2";
+    render(<CalculatorPage negativeNumbers={negativeString} error={true} />);
+
+    const NegativeError = () => (
+      <span className="content colorContent">
+        {`Negative numbers not allowed :${negativeString}`}
+      </span>
+    );
+    const { asFragment } = render(<NegativeError />);
+    const inputStringField2 = screen.getByPlaceholderText(
+      "E.G.,//;\\n1;2;3 or 1,2,3"
+    );
+    fireEvent.change(inputStringField2, {
+      target: {
+        negativeString,
+      },
+    });
+    expect(inputStringField2).toBeInTheDocument();
+
+    expect(asFragment()).toHaveTextContent(
+      "Negative numbers not allowed :-1,-2"
+    );
+    expect(asFragment()).toBeTruthy();
+    expect(asFragment()).toMatchSnapshot();
+  });
 });
