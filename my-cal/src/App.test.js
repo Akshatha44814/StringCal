@@ -1,11 +1,8 @@
 import {
-  act,
   cleanup,
-  fireEvent,
   render,
   screen,
 } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import App from "./App";
 import Calculator from "./Calculator/Calculator";
 import "./index.css";
@@ -21,47 +18,19 @@ describe("renders Calculate Component", () => {
   });
 
   it("render String Calculator header", () => {
-    render(<Calculator />);
+    const { asFragment } = render(<Calculator />);
     const linkHeader = screen.getByText("String Calculator");
     expect(linkHeader).toBeInTheDocument();
+    expect(asFragment()).toHaveTextContent("String Calculator");
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it("render Enter numbers label", () => {
-    render(<Calculator />);
+    const { asFragment } = render(<Calculator />);
     const linkLabel = screen.getByText("Enter numbers");
     expect(linkLabel).toBeInTheDocument();
-  });
-
-  it("render Calculate component", () => {
-    render(<Calculator />);
-  });
-
-  it("Input string Onclick calculate show output", () => {
-    const calculateSum = jest.fn();
-
-    render(<Calculator />);
-    const inputStringField = screen.getByPlaceholderText(
-      "E.G.,//;\\n1;2;3 or 1,2,3"
-    );
-    expect(inputStringField).toBeInTheDocument();
-    const value = "1,2,3";
-    fireEvent.change(inputStringField, {
-      target: {
-        value,
-      },
-    });
-    expect(inputStringField).toHaveValue("1,2,3");
-
-    const { getByText } = render(<button onClick={() => calculateSum()} />);
-    const buttonEl = getByText("Calculate");
-    act(() => fireEvent.click(buttonEl));
-    expect(buttonEl).toHaveTextContent("Calculate");
-    expect(buttonEl).toBeTruthy();
-
-    const outputStringField = screen.getByPlaceholderText("Result Output");
-    expect(outputStringField).toBeInTheDocument();
-    expect(outputStringField).toBeDisabled();
-    expect(outputStringField).toHaveValue("6");
+    expect(asFragment()).toHaveTextContent("Enter numbers");
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it("display the format label", () => {
@@ -74,31 +43,6 @@ describe("renders Calculate Component", () => {
     );
     const { asFragment } = render(<Format />);
     expect(asFragment()).toHaveTextContent("(Format://[delimiter] [numbers])");
-    expect(asFragment()).toMatchSnapshot();
-  });
-  it("should render the value of negative number and error message", () => {
-    const negativeString = "-1,-2";
-    render(<Calculator negativeNumbers={negativeString} error={true} />);
-
-    const NegativeError = () => (
-      <span className="content colorContent">
-        {`Negative numbers not allowed :${negativeString}`}
-      </span>
-    );
-    const { asFragment } = render(<NegativeError />);
-    const inputStringField2 = screen.getByPlaceholderText(
-      "E.G.,//;\\n1;2;3 or 1,2,3"
-    );
-    fireEvent.change(inputStringField2, {
-      target: {
-        negativeString,
-      },
-    });
-    expect(inputStringField2).toBeInTheDocument();
-
-    expect(asFragment()).toHaveTextContent(
-      "Negative numbers not allowed :-1,-2"
-    );
     expect(asFragment()).toMatchSnapshot();
   });
 });

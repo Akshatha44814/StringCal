@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Calculate Component should render the value of negative number and error message 1`] = `
+<DocumentFragment>
+  <span
+    class="content colorContent"
+  >
+    Negative numbers not allowed :-1,-2
+  </span>
+</DocumentFragment>
+`;
