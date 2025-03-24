@@ -8,6 +8,8 @@ import {
 import CalculatorPage from "../CalculatorPage/CalculatorPage";
 
 afterEach(cleanup);
+const negativeString = "-1,-2";
+const error = true;
 describe("renders Calculate Component", () => {
   it("Render Calculate Body Component", () => {
     render(<CalculatorPage />);
@@ -42,8 +44,6 @@ describe("renders Calculate Component", () => {
     expect(outputStringField).toBeTruthy();
   });
   it("should render the value of negative number and error message", () => {
-    const negativeString = "-1,-2";
-    const error = true;
     render(<CalculatorPage negativeNumbers={negativeString} error={error} />);
 
     const NegativeError = () => (
@@ -70,7 +70,7 @@ describe("renders Calculate Component", () => {
   });
   it("Negative value should disable the calculate button", () => {
     const { getByText, asFragment } = render(
-      <button className="calculate" disabled={true}>
+      <button className="calculate" disabled={error}>
         Calculate
       </button>
     );
