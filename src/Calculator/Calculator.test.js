@@ -1,4 +1,10 @@
-import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
+import {
+  act,
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+} from "@testing-library/react";
 import CalculatorPage from "../CalculatorPage/CalculatorPage";
 
 afterEach(cleanup);
@@ -27,5 +33,11 @@ describe("renders Calculate Component", () => {
     expect(buttonEl).toHaveTextContent("Calculate");
     expect(buttonEl).toBeTruthy();
     expect(buttonEl).toBeInTheDocument();
+
+    const outputStringField = screen.getByPlaceholderText("Result Output");
+    expect(outputStringField).toBeInTheDocument();
+    expect(outputStringField).toBeDisabled();
+    expect(outputStringField).toHaveValue("6");
+    expect(outputStringField).toBeTruthy();
   });
 });
