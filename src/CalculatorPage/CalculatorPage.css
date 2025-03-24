@@ -1,8 +1,9 @@
 .input {
   padding: 10px;
-  width: 360px;
+  width: 90%;
   border: 1px solid #ececec;
   border-radius: 2px;
+  margin: 2% 0% 2% 0%;
 }
 .resultInput {
   margin-bottom: 5%;
@@ -14,4 +15,12 @@ button[disabled] {
 }
 .colorContent {
   color: red;
+}
+.calculate {
+  background: blue;
+  color: white;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+  padding: 10px;
+  width: 95%;
 }
