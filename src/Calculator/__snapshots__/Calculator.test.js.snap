@@ -1,5 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders Calculate Component Negative value should disable the calculate button 1`] = `
+<DocumentFragment>
+  <button
+    class="calculate"
+    disabled=""
+  >
+    Calculate
+  </button>
+</DocumentFragment>
+`;
+
 exports[`renders Calculate Component should render the value of negative number and error message 1`] = `
 <DocumentFragment>
   <span
